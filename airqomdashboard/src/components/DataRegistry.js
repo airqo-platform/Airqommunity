@@ -13,10 +13,12 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import Header from './Header';
-import ImageGallery from './ImageGallery';
-import Contacts from './Contacts';
-import Map from './Map';
-import MapPage from './MapPage';
+
+import Message from "./Message"
+import { Link } from 'react-router-dom';
+
+
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -33,6 +35,9 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerPaper: {
     width: drawerWidth,
+  },
+  headerone:{
+      backgroundColor:"Blue",
   },
   // necessary for content to be below app bar
   toolbar: theme.mixins.toolbar,
@@ -64,38 +69,71 @@ export default function DataRegistry() {
         <div className={classes.toolbar} />
         <Divider />
         <List>
-          {['Contacts', 'Messages', 'Monitor Proximity'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
+        <ListItem button  component={Link} to="/">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "First page" />
             </ListItem>
-          ))}
+
+            <ListItem button  component={Link} to="/">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Contacts" />
+            </ListItem>
+
+            <ListItem button  component={Link} to="/dataregistry">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Messages" />
+            </ListItem>
+            <ListItem button  component={Link} to="/dataregistry">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Monitor Proximity" />
+            </ListItem>
         </List>
         <Divider />
         <List>
-          {['Good AirQuality', 'Bad Air Quality', 'Random'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
+
+        <ListItem button  component={Link} to="/">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Good AirQuality" />
             </ListItem>
-          ))}
+
+            <ListItem button  component={Link} to="/Bad Air Quality">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Messages" />
+            </ListItem>
+            <ListItem button  component={Link} to="/Random">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Monitor Proximity" />
+            </ListItem>
         </List>
         <Divider/>
         <List>
-          {['All Locations', 'Bwaise', 'Kyebando',"Mulago"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
+        <ListItem button  component={Link} to="/">
+        <ListItemIcon> <InboxIcon /> </ListItemIcon>
+             <ListItemText primary= "All Locations" />
             </ListItem>
-          ))}
+
+            <ListItem button  component={Link} to="/">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Bwaise" />
+            </ListItem>
+            <ListItem button  component={Link} to="/">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Kyebando" />
+            </ListItem>
+            <ListItem button  component={Link} to="/">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Mulago" />
+            </ListItem>
         </List>
       </Drawer>
 
 
      
       <main className={classes.content}>
+      <Header/>
+
         <div className={classes.toolbar} />
-        <MapPage/>
+        <Message/>
       </main>
     </div>
     </div>

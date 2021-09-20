@@ -1,20 +1,21 @@
-import Topbar from "./components/Topbar";
-import Header from "./components/Header";
-import FirstPage from "./components/FirstPage";
-import DataRegistry from "./components/DataRegistry";
-import Contacts from "./components/Contacts";
-import Sidenav from "./components/Sidenav";
-function App() {
-  return (
-    <div className="App">
-      
-      
-      <Topbar/>
-      <DataRegistry/>
-      
-      
-    </div>
-  );
-}
 
+import {Router} from "react-router-dom"
+import Routes from "./routes"
+import history from "./services/history"
+function  App() {
+
+
+return(
+
+
+
+		<Router history ={history}>
+		<Routes/>
+		</Router>
+
+	
+	
+	);
+}
 export default App;
+
