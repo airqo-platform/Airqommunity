@@ -75,33 +75,59 @@ export default function FirstPage() {
               <ListItemIcon> <InboxIcon /> </ListItemIcon>
               <ListItemText primary= "First page" />
             </ListItem>
-          {['Contacts', 'Messages', 'Monitor Proximity'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
+
+            <ListItem button  component={Link} to="/contacts">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Contacts" />
             </ListItem>
-          ))}
+
+            <ListItem button  component={Link} to="/dataregistry">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Messages" />
+            </ListItem>
+            <ListItem button  component={Link} to="/dataregistry">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Monitor Proximity" />
+            </ListItem>
         </List>
         <Divider />
         <List>
-          {['Good AirQuality', 'Bad Air Quality', 'Random'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
+
+        <ListItem button  component={Link} to="/gallery">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Good AirQuality" />
             </ListItem>
-          ))}
+
+            <ListItem button  component={Link} to="/">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Bad Air Quality" />
+            </ListItem>
+            <ListItem button  component={Link} to="/">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Random" />
+            </ListItem>
         </List>
         <Divider/>
         <List>
-          {['All Locations', 'Bwaise', 'Kyebando',"Mulago"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
+        <ListItem button  component={Link} to="/map">
+        <ListItemIcon> <InboxIcon /> </ListItemIcon>
+             <ListItemText primary= "All Locations" />
             </ListItem>
-          ))}
+
+            <ListItem button  component={Link} to="/bwaisemap">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Bwaise" />
+            </ListItem>
+            <ListItem button  component={Link} to="/kyebandomap">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Kyebando" />
+            </ListItem>
+            <ListItem button  component={Link} to="/mulagomap">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Mulago" />
+            </ListItem>
         </List>
       </Drawer>
-
 
      
       <main className={classes.content}>

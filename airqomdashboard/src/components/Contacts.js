@@ -1,63 +1,143 @@
-import * as React from 'react';
-import { DataGrid } from '@mui/x-data-grid';
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import List from '@material-ui/core/List';
+import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import MailIcon from '@material-ui/icons/Mail';
+import Header from './Header';
 
-const columns = [
-  { field: 'id', headerName: 'ID', width: 90 },
-  {
-    field: 'firstName',
-    headerName: 'First name',
-    width: 150,
-    editable: true,
-  },
-  {
-    field: 'lastName',
-    headerName: 'Last name',
-    width: 150,
-    editable: true,
-  },
-  {
-    field: 'age',
-    headerName: 'Age',
-    type: 'number',
-    width: 110,
-    editable: true,
-  },
-  {
-    field: 'fullName',
-    headerName: 'Full name',
-    description: 'This column has a value getter and is not sortable.',
-    sortable: false,
-    width: 160,
-    valueGetter: (params) =>
-      `${params.getValue(params.id, 'firstName') || ''} ${
-        params.getValue(params.id, 'lastName') || ''
-      }`,
-  },
-];
+import Message from "./Message"
+import { Link } from 'react-router-dom';
 
-const rows = [
-  { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
-  { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
-  { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
-  { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-  { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
-  { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
-  { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-  { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-  { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
-];
+import ContactContent from './ContactContent';
 
-export default function Contacts() {
+
+
+const drawerWidth = 240;
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+  },
+  appBar: {
+    width: `calc(100% - ${drawerWidth}px)`,
+    marginLeft: drawerWidth,
+  },
+  drawer: {
+    width: drawerWidth,
+    flexShrink: 0,
+  },
+  drawerPaper: {
+    width: drawerWidth,
+  },
+  headerone:{
+      backgroundColor:"Blue",
+  },
+  // necessary for content to be below app bar
+  toolbar: theme.mixins.toolbar,
+  content: {
+    flexGrow: 1,
+    backgroundColor: theme.palette.background.default,
+    padding: theme.spacing(3),
+  },
+}));
+
+export default function FirstPage() {
+  const classes = useStyles();
+
   return (
-    <div style={{ height: 400, width: '100%' }}>
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        pageSize={5}
-        rowsPerPageOptions={[5]}
-        checkboxSelection
-        disableSelectionOnClick
-      />
+      <div>
+        
+    <div className={classes.root}>
+       
+      <CssBaseline />
+
+      <Drawer
+        className={classes.drawer}
+        variant="permanent"
+        classes={{
+          paper: classes.drawerPaper,
+        }}
+        anchor="left"
+      >
+        <div className={classes.toolbar} />
+        <Divider />
+        <List>
+        <ListItem button  component={Link} to="/">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "First page" />
+            </ListItem>
+
+            <ListItem button  component={Link} to="/contacts">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Contacts" />
+            </ListItem>
+
+            <ListItem button  component={Link} to="/dataregistry">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Messages" />
+            </ListItem>
+            <ListItem button  component={Link} to="/dataregistry">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Monitor Proximity" />
+            </ListItem>
+        </List>
+        <Divider />
+        <List>
+
+        <ListItem button  component={Link} to="/gallery">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Good AirQuality" />
+            </ListItem>
+
+            <ListItem button  component={Link} to="/">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Bad Air Quality" />
+            </ListItem>
+            <ListItem button  component={Link} to="/">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Random" />
+            </ListItem>
+        </List>
+        <Divider/>
+        <List>
+        <ListItem button  component={Link} to="/map">
+        <ListItemIcon> <InboxIcon /> </ListItemIcon>
+             <ListItemText primary= "All Locations" />
+            </ListItem>
+
+            <ListItem button  component={Link} to="/bwaisemap">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Bwaise" />
+            </ListItem>
+            <ListItem button  component={Link} to="/kyebandomap">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Kyebando" />
+            </ListItem>
+            <ListItem button  component={Link} to="/mulagomap">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Mulago" />
+            </ListItem>
+        </List>
+      </Drawer>
+
+     
+      <main className={classes.content}>
+         <Header/>
+
+
+        <div className={classes.toolbar} />
+        <ContactContent/>
+      </main>
+    </div>
     </div>
   );
 }

@@ -1,271 +1,141 @@
-import React from "react"
-//material ui for designing
-import {Typography,TextField,Grid,CssBaseline,Toolbar,AppBar,Container,Paper,} from "@material-ui/core"
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardHeader from '@material-ui/core/CardHeader';
-import IconButton from '@material-ui/core/IconButton';
-import image from './imageone.jpg'
-import imagetwo from "./imagetwo.jpg"
-import imagethree from "./imagethree.jpg"
-import imagefour from './imagefour.jpg'
-import imagefive from "./imagefive.jpg"
-import imagesix from "./imagesix.jpg"
+import Drawer from '@material-ui/core/Drawer';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import List from '@material-ui/core/List';
+import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import MailIcon from '@material-ui/icons/Mail';
+import Header from './Header';
 
-import Header from "./Header"
-// styling 
+import GoodImage from './GoodImage';
+import { Link } from 'react-router-dom';
+
+
+
+const drawerWidth = 240;
+
 const useStyles = makeStyles((theme) => ({
-  icon: {
-    marginRight: theme.spacing(2),
-  },
-  heroContent: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6),
-  },
-  heroButtons: {
-    marginTop: theme.spacing(4),
-  },
-  cardGrid: {
-    paddingTop: theme.spacing(8),
-    paddingBottom: theme.spacing(8),
-  },
-  card: {
-    height: '100%',
+  root: {
     display: 'flex',
-    flexDirection: 'column',
   },
-  cardMedia: {
-    paddingTop: '56.25%', // 16:9
-    height: "100%" ,
-
+  appBar: {
+    width: `calc(100% - ${drawerWidth}px)`,
+    marginLeft: drawerWidth,
   },
-  cardContent: {
+  drawer: {
+    width: drawerWidth,
+    flexShrink: 0,
+  },
+  drawerPaper: {
+    width: drawerWidth,
+  },
+  headerone:{
+      backgroundColor:"Blue",
+  },
+  // necessary for content to be below app bar
+  toolbar: theme.mixins.toolbar,
+  content: {
     flexGrow: 1,
+    backgroundColor: theme.palette.background.default,
+    padding: theme.spacing(3),
   },
-
 }));
 
+export default function DataRegistry() {
+  const classes = useStyles();
+
+  return (
+      <div>
+        
+    <div className={classes.root}>
+       
+      <CssBaseline />
+
+      <Drawer
+        className={classes.drawer}
+        variant="permanent"
+        classes={{
+          paper: classes.drawerPaper,
+        }}
+        anchor="left"
+      >
+        <div className={classes.toolbar} />
+        <Divider />
+        <List>
+        <ListItem button  component={Link} to="/">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "First page" />
+            </ListItem>
+
+            <ListItem button  component={Link} to="/contacts">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Contacts" />
+            </ListItem>
+
+            <ListItem button  component={Link} to="/dataregistry">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Messages" />
+            </ListItem>
+            <ListItem button  component={Link} to="/dataregistry">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Monitor Proximity" />
+            </ListItem>
+        </List>
+        <Divider />
+        <List>
+
+        <ListItem button  component={Link} to="/gallery">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Good AirQuality" />
+            </ListItem>
+
+            <ListItem button  component={Link} to="/">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Bad Air Quality" />
+            </ListItem>
+            <ListItem button  component={Link} to="/">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Random" />
+            </ListItem>
+        </List>
+        <Divider/>
+        <List>
+        <ListItem button  component={Link} to="/map">
+        <ListItemIcon> <InboxIcon /> </ListItemIcon>
+             <ListItemText primary= "All Locations" />
+            </ListItem>
+
+            <ListItem button  component={Link} to="/bwaisemap">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Bwaise" />
+            </ListItem>
+            <ListItem button  component={Link} to="/kyebandomap">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Kyebando" />
+            </ListItem>
+            <ListItem button  component={Link} to="/mulagomap">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Mulago" />
+            </ListItem>
+        </List>
+      </Drawer>
 
 
+     
+      <main className={classes.content}>
+      <Header/>
 
-export default function ImageGallery (){
-	 const classes = useStyles();
-	return(
-		<>
-		<Header/>
-					<Container maxWidth ="sm">
-						<Typography variant="h3" align ="center" color ="textPrimary" gutterBottom>
-							Photo Album
-						</Typography>
-					<Typography variant="h6" align ="center" color ="textSecondary" paragraph>
-						Some of the highlight Images from community
-
-					</Typography>							
-																
-					</Container>
-
-		<div className={classes.heroContent} >
-
-					<Container className={classes.cardGrid} maxWidth="md">
-			
-					<Grid container spacing ={4}>
-						<Grid item  xs={12} sm={6} md={4}>
-				                <Card className={classes.card}>
-				                <CardHeader
-
-							        title="Kalerwe"
-							        subheader="April 24, 2021"
-							      />
-				                  <CardMedia
-				                    className={classes.cardMedia}  component="img"
-				                    src={image}
-				                    
-				                    title="Image title"
-				                  />
-				                  <CardContent className={classes.cardContent}>
-				                    <Typography>
-				                      This is the reason why we can't improve air quality in our community
-				                    </Typography>
-				                  </CardContent>
-				                  <CardActions>
-				                    <Button size="small" color="primary">
-				                      View
-				                    </Button>
-				                    <Button size="small" color="primary">
-				                      Edit
-				                    </Button>
-				                  </CardActions>
-				                </Card>
-		                </Grid>
-								  
-
-						<Grid item  xs={12} sm={6} md={4}>
-				                <Card className={classes.card}>
-				                	<CardHeader
-
-							        title="Road side"
-							        subheader="April 19, 2021"
-							      />
-				                  <CardMedia
-				                    className={classes.cardMedia} 
-				                     component="img"
-				                    src={imagetwo}
-				                    title="Image title"
-				                  />
-				                  <CardContent className={classes.cardContent}>
-				                    <Typography>
-				                      Cows Unirating on the road
-				                    </Typography>
-				                  </CardContent>
-				                  <CardActions>
-				                    <Button size="small" color="primary">
-				                      View
-				                    </Button>
-				                    <Button size="small" color="primary">
-				                      Edit
-				                    </Button>
-				                  </CardActions>
-				                </Card>
-		                </Grid>		
-
-
-						<Grid item  xs={12} sm={6} md={4}>
-				                <Card className={classes.card}>
-				                	<CardHeader
-
-							        title="Mperere Centre"
-							        subheader="April 29, 2021"
-							      />
-				                  <CardMedia
-				                    className={classes.cardMedia} 
-				                     component="img"
-				                    src={imagethree}
-				                    title="Image title"
-				                  />
-				                  <CardContent className={classes.cardContent}>
-				                    <Typography>
-				                      Tyre pressure machine, uses fuel but it is in open space and pollutes air
-				                    </Typography>
-				                  </CardContent>
-				                  <CardActions>
-				                    <Button size="small" color="primary">
-				                      View
-				                    </Button>
-				                    <Button size="small" color="primary">
-				                      Edit
-				                    </Button>
-				                  </CardActions>
-				                </Card>
-		                </Grid>			                						  
-						<Grid item  xs={12} sm={6} md={4}>
-				                <Card className={classes.card}>
-				                	<CardHeader
-
-							        title="Kyebando"
-							        subheader="April 23, 2021"
-							      />
-				                  <CardMedia
-				                    className={classes.cardMedia} 
-				                    component="img"
-				                    src={imagefour}
-				                    title="Image title"
-				                  />
-				                  <CardContent className={classes.cardContent}>
-		
-				                    <Typography>
-				                      Rubbish in where it is not supposed to be 
-				                    </Typography>
-				                  </CardContent>
-				                  <CardActions>
-				                    <Button size="small" color="primary">
-				                      View
-				                    </Button>
-				                    <Button size="small" color="primary">
-				                      Edit
-				                    </Button>
-				                  </CardActions>
-				                </Card>
-		                </Grid>
-								  
-
-						<Grid item  xs={12} sm={6} md={4}>
-				                <Card className={classes.card}>
-				                	<CardHeader
-
-							        title="Around HARED kireka"
-							        subheader="April 24, 2021"
-							      />
-				                  <CardMedia
-				                    className={classes.cardMedia} 
-				                     component="img"
-				                    src={imagefive}
-				                    title="Image title"
-				                  />
-				                  <CardContent className={classes.cardContent}>
-			
-				                    <Typography>
-				                      Heavy traffic at kireka
-				                    </Typography>
-				                  </CardContent>
-				                  <CardActions>
-				                    <Button size="small" color="primary">
-				                      View
-				                    </Button>
-				                    <Button size="small" color="primary">
-				                      Edit
-				                    </Button>
-				                  </CardActions>
-				                </Card>
-		                </Grid>		
-
-
-						<Grid item  xs={12} sm={6} md={4}>
-				                <Card className={classes.card}>
-				                	<CardHeader
-
-							        title="Mpererwe Kitenzi road"
-							        subheader="April 20, 2021"
-							      />
-				                  <CardMedia
-				                    className={classes.cardMedia} 
-				                     component="img"
-				                    src={imagesix}
-				                    title="Image title"
-				                  />
-				                  <CardContent className={classes.cardContent}>
-				                    <Typography>
-				                      Bad road too much dust
-				                    </Typography>
-				                  </CardContent>
-				                  <CardActions>
-				                    <Button size="small" color="primary">
-				                      View
-				                    </Button>
-				                    <Button size="small" color="primary">
-				                      Edit
-				                    </Button>
-				                  </CardActions>
-				                </Card>
-		                </Grid>			                						  
-								
-			
-								
-
-					
-					</Grid>
-
-				</Container>
-				</div>
-		
-		</>
-		);
+        <div className={classes.toolbar} />
+        <GoodImage/>
+      </main>
+    </div>
+    </div>
+  );
 }

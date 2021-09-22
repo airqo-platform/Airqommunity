@@ -8,7 +8,7 @@ const FirstPageContent =()=>{
     return(
         <div class = "content">
            
-            <Typography variant="h1" >AirQommunity</Typography>
+            
             <Typography variant="h1" component="h2">About </Typography>
         <Typography paragraph>
         AirQommunity is a network of different targeted community groups within a given AirQloud that serve as on-ground air quality data collectors. These community groups provide contextual evidence to better understand the causes of changes in air quality and how they relate to those living in the environment.

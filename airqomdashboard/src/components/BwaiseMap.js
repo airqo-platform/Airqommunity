@@ -1,48 +1,142 @@
-import { MapContainer, TileLayer, Marker,Popup } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
-import { makeStyles } from "@material-ui/core";
-// Add Marker on Map
-import markerIconPng from "leaflet/dist/images/marker-icon.png"
-import {Icon} from 'leaflet'
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import List from '@material-ui/core/List';
+import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import MailIcon from '@material-ui/icons/Mail';
+//import AddLocationIcon from '@mui/icons-material/AddLocation';
+import Header from './Header';
+
+import BwaiseMapContent from './BwaiseMapContent';
+import { Link } from 'react-router-dom';
+
+
 
 const drawerWidth = 240;
+
 const useStyles = makeStyles((theme) => ({
-
-  map: {
-    height: `calc(100% - ${drawerWidth}px)`,
-    width: `calc(100% `
+  root: {
+    display: 'flex',
   },
- 
-
+  appBar: {
+    width: `calc(100% - ${drawerWidth}px)`,
+    marginLeft: drawerWidth,
+  },
+  drawer: {
+    width: drawerWidth,
+    flexShrink: 0,
+  },
+  drawerPaper: {
+    width: drawerWidth,
+  },
+  headerone:{
+      backgroundColor:"Blue",
+  },
+  // necessary for content to be below app bar
+  toolbar: theme.mixins.toolbar,
+  content: {
+    flexGrow: 1,
+    backgroundColor: theme.palette.background.default,
+    padding: theme.spacing(3),
+  },
 }));
 
-const BwaiseMap = () => {
+export default function DataRegistry() {
   const classes = useStyles();
+
   return (
-    
-  <div className={classes.map}>
-<MapContainer style={{ height: "100vh", width: "100%" }} center={[0.351598, 32.562228]} zoom={15} scrollWheelZoom={false}>
-  <TileLayer
-    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-  />
-  <Marker position={[0.351598, 32.562228]} icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})} >
-    <Popup>
-    AirQo Generation 5 monitor 
-    </Popup>
-  </Marker>
-  <Marker position={[0.360227,32.557667]} icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})} >
-    <Popup>
-      AirQommunity Champion
-    </Popup>
-  </Marker>
-  <Marker position={[0.3819,  32.5762]} icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})} >
-    <Popup>
-    AirQommunity Champion
-    </Popup>
-  </Marker>
-</MapContainer>
+      <div>
+        
+    <div className={classes.root}>
+       
+      <CssBaseline />
+
+      <Drawer
+        className={classes.drawer}
+        variant="permanent"
+        classes={{
+          paper: classes.drawerPaper,
+        }}
+        anchor="left"
+      >
+        <div className={classes.toolbar} />
+        <Divider />
+        <List>
+        <ListItem button  component={Link} to="/">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "First page" />
+            </ListItem>
+
+            <ListItem button  component={Link} to="/contacts">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Contacts" />
+            </ListItem>
+
+            <ListItem button  component={Link} to="/dataregistry">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Messages" />
+            </ListItem>
+            <ListItem button  component={Link} to="/dataregistry">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Monitor Proximity" />
+            </ListItem>
+        </List>
+        <Divider />
+        <List>
+
+        <ListItem button  component={Link} to="/gallery">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Good AirQuality" />
+            </ListItem>
+
+            <ListItem button  component={Link} to="/">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Bad Air Quality" />
+            </ListItem>
+            <ListItem button  component={Link} to="/">
+              <ListItemIcon> <InboxIcon /> </ListItemIcon>
+              <ListItemText primary= "Random" />
+            </ListItem>
+        </List>
+        <Divider/>
+        <List>
+        <ListItem button  component={Link} to="/map">
+        <ListItemIcon>  </ListItemIcon>
+             <ListItemText primary= "All Locations" />
+            </ListItem>
+
+            <ListItem button  component={Link} to="/bwaisemap">
+              <ListItemIcon>  </ListItemIcon>
+              <ListItemText primary= "Bwaise" />
+            </ListItem>
+            <ListItem button  component={Link} to="/kyebandomap">
+              <ListItemIcon>  </ListItemIcon>
+              <ListItemText primary= "Kyebando" />
+            </ListItem>
+            <ListItem button  component={Link} to="/mulagomap">
+              <ListItemIcon>  </ListItemIcon>
+              <ListItemText primary= "Mulago" />
+            </ListItem>
+        </List>
+      </Drawer>
+
+
+     
+      <main className={classes.content}>
+      <Header/>
+
+        <div className={classes.toolbar} />
+        <BwaiseMapContent />
+      </main>
+    </div>
     </div>
   );
-};
-export default BwaiseMap ;
+}

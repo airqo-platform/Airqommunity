@@ -74,7 +74,7 @@ export default function DataRegistry() {
               <ListItemText primary= "First page" />
             </ListItem>
 
-            <ListItem button  component={Link} to="/">
+            <ListItem button  component={Link} to="/contacts">
               <ListItemIcon> <InboxIcon /> </ListItemIcon>
               <ListItemText primary= "Contacts" />
             </ListItem>
@@ -91,36 +91,36 @@ export default function DataRegistry() {
         <Divider />
         <List>
 
-        <ListItem button  component={Link} to="/">
+        <ListItem button  component={Link} to="/gallery">
               <ListItemIcon> <InboxIcon /> </ListItemIcon>
               <ListItemText primary= "Good AirQuality" />
             </ListItem>
 
-            <ListItem button  component={Link} to="/Bad Air Quality">
+            <ListItem button  component={Link} to="/">
               <ListItemIcon> <InboxIcon /> </ListItemIcon>
-              <ListItemText primary= "Messages" />
+              <ListItemText primary= "Bad Air Quality" />
             </ListItem>
-            <ListItem button  component={Link} to="/Random">
+            <ListItem button  component={Link} to="/">
               <ListItemIcon> <InboxIcon /> </ListItemIcon>
-              <ListItemText primary= "Monitor Proximity" />
+              <ListItemText primary= "Random" />
             </ListItem>
         </List>
         <Divider/>
         <List>
-        <ListItem button  component={Link} to="/">
+        <ListItem button  component={Link} to="/map">
         <ListItemIcon> <InboxIcon /> </ListItemIcon>
              <ListItemText primary= "All Locations" />
             </ListItem>
 
-            <ListItem button  component={Link} to="/">
+            <ListItem button  component={Link} to="/bwaisemap">
               <ListItemIcon> <InboxIcon /> </ListItemIcon>
               <ListItemText primary= "Bwaise" />
             </ListItem>
-            <ListItem button  component={Link} to="/">
+            <ListItem button  component={Link} to="/kyebandomap">
               <ListItemIcon> <InboxIcon /> </ListItemIcon>
               <ListItemText primary= "Kyebando" />
             </ListItem>
-            <ListItem button  component={Link} to="/">
+            <ListItem button  component={Link} to="/mulagomap">
               <ListItemIcon> <InboxIcon /> </ListItemIcon>
               <ListItemText primary= "Mulago" />
             </ListItem>
