@@ -14,7 +14,8 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import Header from './Header';
 
-import Message from "./Message"
+//import Message from "./Message"
+import FetchMessage from './FetchMessage';
 import { Link } from 'react-router-dom';
 
 
@@ -71,8 +72,14 @@ export default function DataRegistry() {
         <List>
         <ListItem button  component={Link} to="/">
               <ListItemIcon> <InboxIcon /> </ListItemIcon>
-              <ListItemText primary= "First page" />
+              <ListItemText primary= "Overview" />
             </ListItem>
+
+
+        </List>
+        <Divider />
+        <List>
+ 
 
             <ListItem button  component={Link} to="/contacts">
               <ListItemIcon> <InboxIcon /> </ListItemIcon>
@@ -133,7 +140,7 @@ export default function DataRegistry() {
       <Header/>
 
         <div className={classes.toolbar} />
-        <Message/>
+        <FetchMessage/>
       </main>
     </div>
     </div>

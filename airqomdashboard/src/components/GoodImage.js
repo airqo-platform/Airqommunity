@@ -15,8 +15,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardHeader from '@material-ui/core/CardHeader';
 import IconButton from '@material-ui/core/IconButton';
 import image from './imageone.jpg'
-import imagetwo from "./imagetwo.jpg"
-import imagethree from "./imagethree.jpg"
+import imagetwo from "./imagetwo.JPG"
+import imagethree from "./imagethree.JPG"
 import imagefour from './imagefour.jpg'
 import imagefive from "./imagefive.jpg"
 import imagesix from "./imagesix.jpg"
@@ -59,6 +59,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function GoodImage (){
 	 const classes = useStyles();
+     const onView =(e)=>{
+         alert("view Image")
+     }
 	return(
 		<>
 					<Container maxWidth ="sm">
@@ -81,7 +84,7 @@ export default function GoodImage (){
 				                <Card className={classes.card}>
 				                <CardHeader
 
-							        title="Kalerwe"
+							        title="Bwaise"
 							        subheader="April 24, 2021"
 							      />
 				                  <CardMedia
@@ -91,12 +94,12 @@ export default function GoodImage (){
 				                    title="Image title"
 				                  />
 				                  <CardContent className={classes.cardContent}>
-				                    <Typography>
-				                      This is the reason why we can't improve air quality in our community
+				                    <Typography onClick={onView}>
+				                      Community Engagement in Bwaise
 				                    </Typography>
 				                  </CardContent>
 				                  <CardActions>
-				                    <Button size="small" color="primary">
+				                    <Button size="small" color="primary" onClick={onView}>
 				                      View
 				                    </Button>
 				                    <Button size="small" color="primary">
@@ -111,7 +114,7 @@ export default function GoodImage (){
 				                <Card className={classes.card}>
 				                	<CardHeader
 
-							        title="Road side"
+							        title="Sensitization"
 							        subheader="April 19, 2021"
 							      />
 				                  <CardMedia
@@ -122,7 +125,7 @@ export default function GoodImage (){
 				                  />
 				                  <CardContent className={classes.cardContent}>
 				                    <Typography>
-				                      Cows Unirating on the road
+				                      Educating community members about air quality
 				                    </Typography>
 				                  </CardContent>
 				                  <CardActions>
@@ -141,7 +144,7 @@ export default function GoodImage (){
 				                <Card className={classes.card}>
 				                	<CardHeader
 
-							        title="Mperere Centre"
+							        title="AirQo Team in the Field"
 							        subheader="April 29, 2021"
 							      />
 				                  <CardMedia
@@ -152,7 +155,7 @@ export default function GoodImage (){
 				                  />
 				                  <CardContent className={classes.cardContent}>
 				                    <Typography>
-				                      Tyre pressure machine, uses fuel but it is in open space and pollutes air
+				                      
 				                    </Typography>
 				                  </CardContent>
 				                  <CardActions>

@@ -18,6 +18,7 @@ import Message from "./Message"
 import { Link } from 'react-router-dom';
 
 import ContactContent from './ContactContent';
+import MatTable from './MatTable';
 
 
 
@@ -73,8 +74,14 @@ export default function FirstPage() {
         <List>
         <ListItem button  component={Link} to="/">
               <ListItemIcon> <InboxIcon /> </ListItemIcon>
-              <ListItemText primary= "First page" />
+              <ListItemText primary= "Overview" />
             </ListItem>
+
+
+        </List>
+        <Divider />
+        <List>
+
 
             <ListItem button  component={Link} to="/contacts">
               <ListItemIcon> <InboxIcon /> </ListItemIcon>
@@ -135,7 +142,7 @@ export default function FirstPage() {
 
 
         <div className={classes.toolbar} />
-        <ContactContent/>
+        <MatTable/>
       </main>
     </div>
     </div>

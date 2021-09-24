@@ -17,16 +17,20 @@ export default function Header() {
 				</Typography>
 
 	<Button  >
-    Data Registry
+    
       </Button>
       <Button>
-         Map
+         
          </Button>
          <Button>
-         Image Gallery
+         
          </Button>
+		 <pre>
+		{new Date().toLocaleString() + ""}
+		</pre>
 			</Toolbar>
 		</AppBar>
+
 	
 </div>		
 		);

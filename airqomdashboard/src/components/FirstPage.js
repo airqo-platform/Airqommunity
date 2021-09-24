@@ -70,11 +70,18 @@ export default function FirstPage() {
       >
         <div className={classes.toolbar} />
         <Divider />
+
         <List>
         <ListItem button  component={Link} to="/">
               <ListItemIcon> <InboxIcon /> </ListItemIcon>
-              <ListItemText primary= "First page" />
+              <ListItemText primary= "Overview" />
             </ListItem>
+
+
+        </List>
+        <Divider />
+        <List>
+
 
             <ListItem button  component={Link} to="/contacts">
               <ListItemIcon> <InboxIcon /> </ListItemIcon>
